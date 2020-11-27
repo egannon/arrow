@@ -1057,6 +1057,8 @@ class Arrow:
                         "Invalid level of granularity. Please select between 'second', 'minute', 'hour', 'day', 'week', 'month' or 'year'"
                     )
 
+                if isinstance(delta, float):
+                    delta = int(delta)
                 if trunc(abs(delta)) != 1:
                     granularity += "s"
                 return locale.describe(granularity, delta, only_distance=only_distance)
